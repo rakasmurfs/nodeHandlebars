@@ -1,0 +1,57 @@
+    <h1 class="display-4">Eat a burger</h1>
+   
+    <p class="lead">I hope you hate them</p>
+    
+
+<!-- Pass in data from server.js -->
+<div id="tables">
+  <div id="uneaten">
+
+<table id="table1">
+  <tr>
+    <th>Burgers ready to eat!</th>
+  </tr>
+  {{#each burgers}}
+  {{#unless devoured}}
+ 
+  <tr>
+    <td>{{this.burger_name}}
+      <button data-id="{{this.id}}" class="devour">Devour</button>
+    </td>
+  </tr>
+  {{/unless}}
+  {{/each}}
+</table>
+</div>
+<div id="eaten">
+
+<table id="table2">
+  <tr>
+    <th>Burgers you enjoyed</th>
+  </tr>
+  {{#each burgers}}
+  {{#if devoured}}
+  
+  <tr>
+    <td>{{this.burger_name}}
+      <button data-id="{{this.id}}" class="delete">Delete</button>
+    </td>
+  </tr>
+  {{/if}}
+  {{/each}}
+</table>
+</div>
+</div>
+  <h3>Add your own</h3>
+
+  <form class="create-form">
+
+
+    <div class="form-group">
+      <label for="name">Describe your dream burger and click Add Burger to make it a reality</label>
+      <br>
+      <input id="name" name="name" rows="8" cols="40"></input>
+    </div>
+
+    <button type="submit" id="submit-btn">Add Burger</button>
+  </form>
